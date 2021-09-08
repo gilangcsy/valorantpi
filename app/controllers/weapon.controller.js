@@ -16,7 +16,7 @@ exports.showWeapons = (req, res) => {
             res.send(data);
         }).catch((err) => {
             res.status(500).send({
-                message: err.message || "Some error occured."
+                message: err.message || "There is a problem in the server."
             });
         });
 }
@@ -94,7 +94,7 @@ exports.deleteWeapon = (req, res) => {
         }
     }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occured."
+            message: err.message || "There is a problem in the server."
         });
     })
 }

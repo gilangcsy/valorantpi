@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
 
 
 require('./app/routes/weapon.routes')(app);
+require('./app/routes/role.routes')(app);
 
 //Inisiasi port yang akan dipakai
 const PORT = 8000;
