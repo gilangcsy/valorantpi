@@ -12,6 +12,7 @@ module.exports = (sequelize, Sequelize) => {
                 model: 'hero',
                 key: 'id'
             },
+            onDelete: 'cascade'
         }
     }, {
         tableName: 'skill'
