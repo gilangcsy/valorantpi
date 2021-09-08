@@ -1,0 +1,25 @@
+{
+  "name": "valorantpi",
+  "version": "1.0.0",
+  "description": "ValorantPI is web service that provide you basic information about valorant.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilangcsy/valorantpi.git"
+  },
+  "author": "gilangcsy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gilangcsy/valorantpi/issues"
+  },
+  "homepage": "https://github.com/gilangcsy/valorantpi#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sequelize": "^6.6.5"
+  }
+}
