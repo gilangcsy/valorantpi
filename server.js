@@ -9,9 +9,9 @@ const db = require('./app/models');
 const app = express();
 
 //Membuat daftar web yang dapat mengonsumsi ValorantPI
-let whiteList = [
-    'http://localhost:8081'
-];
+// let whiteList = [
+//     'http://localhost:8081'
+// ];
 
 //Mendaftarkan web yang dapat mengonsumsi ValorantPI
 // let corsOption = {
@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 require('./app/routes/weapon.routes')(app);
 require('./app/routes/role.routes')(app);
 require('./app/routes/hero.routes')(app);
+require('./app/routes/skill.routes')(app);
 
 //Inisiasi port yang akan dipakai
 const PORT = 8000;

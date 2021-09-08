@@ -29,5 +29,8 @@ db.role = require('./role.model')(sequelize, Sequelize);
 db.skill = require('./skill.model')(sequelize, Sequelize);
 db.weapon = require('./weapon.model')(sequelize, Sequelize);
 
+db.hero.hasMany(db.skill);
+db.skill.belongsTo(db.hero);
+
 
 module.exports = db;

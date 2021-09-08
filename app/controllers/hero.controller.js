@@ -1,3 +1,4 @@
+const { skill } = require('../models');
 const db = require('../models');
 
 //Memanggil model Hero
@@ -17,7 +18,10 @@ exports.showHeros = (req, res) => {
     let condition = heroName ? { heroName: { [Op.like]: `%${heroName}%` } } : null;
 
     Hero.findAll({
-        where: condition
+        where: condition,
+        include: {
+            model: skill
+        }
     }).then(result => {
         res.status(200).send(result);
     }).catch(err => {
