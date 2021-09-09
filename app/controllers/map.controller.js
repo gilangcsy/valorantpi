@@ -1,16 +1,16 @@
 const db = require('../models');
 
-//Memanggil model role
-const Role = db.role;
+//Memanggil model map
+const Map = db.map;
 
 const Op = db.Sequelize.Op;
 
-//GET role data dari database
-exports.showRoles = (req, res) => {
-    const roleName = req.query.roleName;
-    let condition = roleName ? { roleName: { [Op.like]: `%${roleName}%` } } : null;
+//GET map data dari database
+exports.showMaps = (req, res) => {
+    const mapName = req.query.mapName;
+    let condition = mapName ? { mapName: { [Op.like]: `%${mapName}%` } } : null;
 
-    Role.findAll({
+    Map.findAll({
         where: condition
     }).then(result => {
         res.status(200).send(result);
@@ -21,22 +21,24 @@ exports.showRoles = (req, res) => {
     })
 }
 
-//INSERT role data ke dalam database
-exports.createRole = (req, res) => {
-    roleName = req.body.roleName;
-    roleDescription = req.body.roleDescription;
+//INSERT map data ke dalam database
+exports.createMap = (req, res) => {
+    mapName = req.body.mapName;
+    mapDescription = req.body.mapDescription;
+    mapReleased = req.body.mapReleased;
 
-    if (!roleName || !roleDescription) {
+    if (!mapName || !mapDescription || !mapReleased) {
         res.status(400).send({
             message: "Content cannot empty!"
         })
     } else {
-        const role = {
-            roleName: roleName,
-            roleDescription: roleDescription
+        const map = {
+            mapName: mapName,
+            mapDescription: mapDescription,
+            mapReleased: mapReleased
         }
 
-        Role.create(role)
+        Map.create(map)
             .then(result => {
                 res.status(200).send(result);
             }).catch(err => {
@@ -47,21 +49,21 @@ exports.createRole = (req, res) => {
     }
 }
 
-//UPDATE role data ke dalam databse
-exports.updateRole = (req, res) => {
+//UPDATE map data ke dalam databse
+exports.updateMap = (req, res) => {
     const id = req.params.id;
-    Role.update(req.body, {
+    Map.update(req.body, {
         where: {
             id: id
         }
     }).then(result => {
         if (result == 1) {
             res.status(200).send({
-                messagge: "Role updated successfully!"
+                messagge: "Map updated successfully!"
             });
         } else {
             res.status(400).send({
-                message: `Role ID ${id} not found!`
+                message: `Map ID ${id} not found!`
             })
         }
     }).catch(err => {
@@ -71,21 +73,21 @@ exports.updateRole = (req, res) => {
     });
 }
 
-//DELETE role data dari dalam database
-exports.deleteRole = (req, res) => {
+//DELETE map data dari dalam database
+exports.deleteMap = (req, res) => {
     const id = req.params.id;
-    Role.destroy({
+    Map.destroy({
         where: {
             id: id
         }
     }).then(result => {
         if (result == 1) {
             res.status(200).send({
-                messagge: "Role deleted successfully!"
+                messagge: "Map deleted successfully!"
             });
         } else {
             res.status(400).send({
-                message: `Role ID ${id} not found!`
+                message: `Map ID ${id} not found!`
             });
         }
     }).catch(err => {

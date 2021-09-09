@@ -42,6 +42,7 @@ require('./app/routes/weapon.routes')(app);
 require('./app/routes/role.routes')(app);
 require('./app/routes/hero.routes')(app);
 require('./app/routes/skill.routes')(app);
+require('./app/routes/map.routes')(app);
 
 //Inisiasi port yang akan dipakai
 const PORT = 8000;

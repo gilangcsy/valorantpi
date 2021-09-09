@@ -67,7 +67,7 @@ exports.updateWeapon = (req, res) => {
             })
         } else {
             res.status(400).send({
-                message: "Cannot update Weapon!"
+                message: `Weapon ID ${id} not found!`
             })
         }
     })
@@ -89,7 +89,7 @@ exports.deleteWeapon = (req, res) => {
             });
         } else {
             res.send({
-                message: "Cannot delete weapon"
+                message: `Weapon ID ${id} not found!`
             })
         }
     }).catch(err => {

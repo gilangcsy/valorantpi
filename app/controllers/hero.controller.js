@@ -89,7 +89,7 @@ exports.updateHero = (req, res) => {
             });
         } else {
             res.status(400).send({
-                message: "Cannot update Hero!"
+                message: `Hero ID ${id} not found!`
             })
         }
     }).catch(err => {
@@ -113,7 +113,7 @@ exports.deleteHero = (req, res) => {
             });
         } else {
             res.status(400).send({
-                message: "Cannot delete Hero!"
+                message: `Hero ID ${id} not found!`
             });
         }
     }).catch(err => {
