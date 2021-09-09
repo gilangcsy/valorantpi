@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 //Memanggil model
-// const db = require('./app/models');
+const db = require('./app/models');
 
 //Deklarasi express.js
 const app = express();
@@ -24,11 +24,11 @@ const app = express();
 //     }
 // }
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Migrasi tabel yang ada dalam setiap model
-// db.sequelize.sync({ force: false });
+db.sequelize.sync({ force: false });
 
 //Inisasi routing pada halaman awal
 app.get('/', (req, res) => {
@@ -38,11 +38,11 @@ app.get('/', (req, res) => {
 });
 
 
-// require('./app/routes/weapon.routes')(app);
-// require('./app/routes/role.routes')(app);
-// require('./app/routes/hero.routes')(app);
-// require('./app/routes/skill.routes')(app);
-// require('./app/routes/map.routes')(app);
+require('./app/routes/weapon.routes')(app);
+require('./app/routes/role.routes')(app);
+require('./app/routes/hero.routes')(app);
+require('./app/routes/skill.routes')(app);
+require('./app/routes/map.routes')(app);
 
 //Inisiasi port yang akan dipakai
 const PORT = process.env.PORT || 8000;
