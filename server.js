@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 // require('./app/routes/map.routes')(app);
 
 //Inisiasi port yang akan dipakai
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
     console.log(`Server is running on PORT ${PORT}`);
