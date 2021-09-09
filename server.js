@@ -33,7 +33,9 @@ db.sequelize.sync({ force: false });
 //Inisasi routing pada halaman awal
 app.get('/', (req, res) => {
     res.json({
-        message: "Welcome to ValorantPI!"
+        message: "Welcome to ValorantPI!",
+        postgedb: process.env.POSTGRES_DB || "elitypescript",
+        user: process.env.POSTGRES_USER || "eli"
     });
 });
 
