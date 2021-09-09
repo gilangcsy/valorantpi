@@ -11,5 +11,5 @@ module.exports = {
         idle: 10000
     },
     timezone: "+07:00",
-    use_env_variable: "DATABASE_URL"
+    use_env_variable: process.env.DATABASE_URL
 }

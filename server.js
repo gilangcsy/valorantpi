@@ -33,7 +33,7 @@ db.sequelize.sync({ force: false });
 //Inisasi routing pada halaman awal
 app.get('/', (req, res) => {
     res.json({
-        message: process.env.DATABASE_URL
+        message: "Welcome to ValorantPI!"
     });
 });
 
