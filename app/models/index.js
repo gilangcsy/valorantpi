@@ -25,9 +25,11 @@ const sequelize = new Sequelize(dbConfig.use_env_variable, {
     dialect: dbConfig.dialect,
     // operatorAliases: false,
     timezone: dbConfig.timezone,
-    ssl: {
-        require: true,
-        rejectUnauthorized: false
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
     }
 
     // pool: {
