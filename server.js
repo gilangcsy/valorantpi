@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Migrasi tabel yang ada dalam setiap model
-// db.sequelize.sync({ force: false });
+db.sequelize.sync({ force: false });
 
 //Inisasi routing pada halaman awal
 app.get('/', (req, res) => {
