@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 //Memanggil model
-const db = require('./app/models');
+// const db = require('./app/models');
 
 //Deklarasi express.js
 const app = express();
