@@ -3,20 +3,37 @@ const dbConfig = require('../config/db.config');
 
 const Sequelize = require('sequelize');
 
+const conn = process.env.DATABASE_URL;
+
 //Konifgurasi database
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-    host: dbConfig.HOST,
+// const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+//     host: dbConfig.HOST,
+//     dialect: dbConfig.dialect,
+//     operatorAliases: false,
+//     timezone: dbConfig.timezone,
+//     pool: {
+//         max: dbConfig.pool.max,
+//         min: dbConfig.pool.min,
+//         acquire: dbConfig.pool.acquire,
+//         idle: dbConfig.pool.idle,
+//     },
+//     // use_env_variable: dbConfig.use_env_variable
+// })
+
+const sequelize = new Sequelize(dbConfig.use_env_variable, {
+    // host: dbConfig.HOST,
     dialect: dbConfig.dialect,
-    operatorAliases: false,
+    // operatorAliases: false,
     timezone: dbConfig.timezone,
-    pool: {
-        max: dbConfig.pool.max,
-        min: dbConfig.pool.min,
-        acquire: dbConfig.pool.acquire,
-        idle: dbConfig.pool.idle,
-    },
-    use_env_variable: dbConfig.use_env_variable
+    // pool: {
+    //     max: dbConfig.pool.max,
+    //     min: dbConfig.pool.min,
+    //     acquire: dbConfig.pool.acquire,
+    //     idle: dbConfig.pool.idle,
+    // },
+    // use_env_variable: dbConfig.use_env_variable
 })
+
 
 const db = {};
 

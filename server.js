@@ -28,14 +28,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Migrasi tabel yang ada dalam setiap model
-db.sequelize.sync({ force: false });
+// db.sequelize.sync({ force: false });
 
 //Inisasi routing pada halaman awal
 app.get('/', (req, res) => {
     res.json({
         message: "Welcome to ValorantPI!",
-        postgedb: process.env.POSTGRES_DB || "elitypescript",
-        user: process.env.POSTGRES_USER || "eli"
     });
 });
 
