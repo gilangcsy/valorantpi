@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 
 //Memanggil model
 const db = require('./app/models');
@@ -8,12 +7,12 @@ const db = require('./app/models');
 //Deklarasi express.js
 const app = express();
 
-//Membuat daftar web yang dapat mengonsumsi ValorantPI
+// Membuat daftar web yang dapat mengonsumsi ValorantPI
 // let whiteList = [
 //     'http://localhost:8081'
 // ];
 
-//Mendaftarkan web yang dapat mengonsumsi ValorantPI
+// Mendaftarkan web yang dapat mengonsumsi ValorantPI
 // let corsOption = {
 //     origin: function (origin, callback) {
 //         if (whiteList.indexOf(origin) !== -1 || !origin) {
